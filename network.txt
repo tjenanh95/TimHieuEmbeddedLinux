@@ -1,0 +1,42 @@
+sudo ifconfig enp3s0 169.254.51.138
+sudo sysctl net.ipv4.ip_forward=1
+sudo iptables --table nat --append POSTROUTING --out-interface wlx0013ef3006df -j MASQUERADE
+sudo iptables --append FORWARD --in-interface enp3s0 -j ACCEPT
+
+route add default gw 169.254.51.138
+echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+
+sh –c “echo BB-ADC >  $SLOTS”
+
+1. Toolchain: gồm một số công cụ để tạo ra code cho board.
+2. Bootloader: khởi tạo hệ thống và load kernel vào bộ nhớ
+3. Kernel: quản lý tài nguyên và tương tác với hardware
+4. Root filesystem: chứa thư viện và các chương trình khởi chạy sau khi Kernel hoàn thành việc khởi tạo
+
+
+Device Driver là chương trình phần mềm để điều khiển phần cứng.
+Vì có nhiều phần cứng quá nên hệ điều hành sẽ không biết là mỗi phần cứng sẽ hoạt động thế nào. Nên nó sẽ phải sử dụng device driver để điều khiển các phần cứng đấy bằng những lệnh chung chung.
+Phần lớn các device driver được viết bởi nhà sản xuất phần cứng.
+Vì mình có những module độc quyền,
+nhưng không muốn cấp phép cho mọi người sử dụng hoặc để giảm thời gian
+boot bằng cách trì hoãn việc load các module không cần thiết.
+
+NAND FLASH: để lưu trữ dữ liệu big data, audio file, file system
+NOR FLASH: thích hợp để lưu trữ code
+Tốc độ đọc: NOR > NAND
+Tốc độ ghi: NOR < NAND
+
+Apache là phần mềm web server miễn phí mã nguồn mở. Nó đang chiếm đến khoảng 46% thị phần websites trên toàn thế giới. 
+Nó xử lý yêu cầu http từ client gửi tới server và đồng thời giúp chủ website đưa nội dung lên web – vì vậy có tên gọi là “web server”
+Nhiệm vụ của web server là đưa website lên internet. 
+
+ PHP (Hypertext Preprocessor) là một ngôn ngữ lập trình mã nguồn mở được
+thực thi trên máy chủ. Một tập tin của PHP có thể chứa các mã nguồn khác
+như HTML, CSS, JavaScript, Jquery. Ưu điểm của PHP là thực thi tốt trên các
+hệ điều hành, các máy chủ phổ biến hiện nay, kết hợp dễ dàng với các hệ quản
+trị cơ sở dữ liệu, cập nhâp database, được cung cấp hoàn toàn miễn phí.
+
+
+
+
+
